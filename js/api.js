@@ -1,5 +1,5 @@
 // js/api.js
-const API_BASE = 'http://localhost:3000'; // <- cambia si tu backend está en otra URL
+const API_BASE = 'https://fibrinous-temple-probatively.ngrok-free.dev'; // <- cambia si tu backend está en otra URL
 
 async function apiFetch(path, opts = {}) {
   const url = `${API_BASE}${path}`;
