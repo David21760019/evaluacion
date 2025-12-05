@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clínica — Dashboard</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h1 class="brand">Clínica</h1>
+      <nav>
+        <a href="index.html" class="active">Dashboard</a>
+        <a href="pacientes.html">Pacientes</a>
+        <a href="doctores.html">Doctores</a>
+        <a href="citas.html">Citas</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h2>Dashboard</h2>
+        <div id="global-search" class="search">
+          <input id="search-input" placeholder="Buscar pacientes, doctores o citas..." />
+        </div>
+      </header>
+
+      <section class="container">
+        <div class="grid grid-4">
+          <div class="card">
+            <div class="card-title">Pacientes</div>
+            <div class="card-value" id="stat-pacientes">—</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Doctores</div>
+            <div class="card-value" id="stat-doctores">—</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Citas hoy</div>
+            <div class="card-value" id="stat-citas-hoy">—</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Citas próximas 24h</div>
+            <div class="card-value" id="stat-citas-24h">—</div>
+          </div>
+        </div>
+
+        <h3 class="section-title">Citas de hoy</h3>
+        <div id="citas-today" class="list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

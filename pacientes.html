@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pacientes — Clínica</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h1 class="brand">Clínica</h1>
+      <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="pacientes.html" class="active">Pacientes</a>
+        <a href="doctores.html">Doctores</a>
+        <a href="citas.html">Citas</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h2>Pacientes</h2>
+        <div>
+          <input id="buscar-paciente" placeholder="Buscar por nombre o ID..." />
+          <button id="btn-nuevo-paciente" class="btn-primary">Nuevo paciente</button>
+        </div>
+      </header>
+
+      <section class="container">
+        <div id="mensaje" class="msg"></div>
+
+        <div id="lista-pacientes" class="cards"></div>
+
+        <!-- Modal / Panel: Formulario Paciente -->
+        <div id="panel-paciente" class="panel hidden">
+          <form id="form-paciente" class="form">
+            <h3 id="form-title">Nuevo Paciente</h3>
+            <label>Nombre
+              <input name="nombre" id="p-nombre" required />
+              <small class="error" id="err-nombre"></small>
+            </label>
+
+            <label>Edad
+              <input name="edad" id="p-edad" type="number" min="1" required />
+              <small class="error" id="err-edad"></small>
+            </label>
+
+            <label>Teléfono
+              <input name="telefono" id="p-telefono" required />
+              <small class="error" id="err-telefono"></small>
+            </label>
+
+            <label>Email
+              <input name="email" id="p-email" type="email" required />
+              <small class="error" id="err-email"></small>
+            </label>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Guardar</button>
+              <button type="button" id="btn-cancelar" class="btn">Cancelar</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Historial -->
+        <div id="panel-historial" class="panel hidden max-w">
+          <button id="cerrar-historial" class="btn">Volver</button>
+          <div id="hist-header"></div>
+          <table id="tabla-historial" class="table">
+            <thead><tr><th>Fecha</th><th>Hora</th><th>Doctor</th><th>Especialidad</th><th>Motivo</th><th>Estado</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/pacientes.js"></script>
+</body>
+</html>

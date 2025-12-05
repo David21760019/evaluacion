@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Doctores — Clínica</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h1 class="brand">Clínica</h1>
+      <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="pacientes.html">Pacientes</a>
+        <a href="doctores.html" class="active">Doctores</a>
+        <a href="citas.html">Citas</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h2>Doctores</h2>
+        <div>
+          <select id="filtro-especialidad"><option value="">Filtrar por especialidad</option></select>
+          <button id="btn-nuevo-doctor" class="btn-primary">Nuevo doctor</button>
+        </div>
+      </header>
+
+      <section class="container">
+        <div id="mensaje-doctor" class="msg"></div>
+
+        <div id="lista-doctores" class="cards"></div>
+
+        <!-- Panel: Form Doctor -->
+        <div id="panel-doctor" class="panel hidden">
+          <form id="form-doctor" class="form">
+            <h3 id="form-doctor-title">Nuevo Doctor</h3>
+
+            <label>Nombre
+              <input name="nombre" id="d-nombre" required />
+              <small class="error" id="err-d-nombre"></small>
+            </label>
+
+            <label>Especialidad
+              <input name="especialidad" id="d-especialidad" required />
+              <small class="error" id="err-d-especialidad"></small>
+            </label>
+
+            <label>Horario inicio
+              <input type="time" id="d-horario-inicio" required />
+              <small class="error" id="err-d-horario"></small>
+            </label>
+
+            <label>Horario fin
+              <input type="time" id="d-horario-fin" required />
+            </label>
+
+            <div>
+              <div class="muted">Días disponibles (mínimo 1)</div>
+              <div class="dias-grid" id="dias-checkboxes">
+                <!-- checkboxes generados por JS -->
+              </div>
+              <small class="error" id="err-d-dias"></small>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Guardar</button>
+              <button type="button" id="btn-cancelar-doctor" class="btn">Cancelar</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Agenda -->
+        <div id="panel-agenda" class="panel hidden max-w">
+          <button id="cerrar-agenda" class="btn">Volver</button>
+          <div id="agenda-header"></div>
+          <div id="agenda-list"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/doctores.js"></script>
+</body>
+</html>

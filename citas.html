@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Citas — Clínica</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h1 class="brand">Clínica</h1>
+      <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="pacientes.html">Pacientes</a>
+        <a href="doctores.html">Doctores</a>
+        <a href="citas.html" class="active">Citas</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h2>Citas</h2>
+        <div>
+          <input id="filtro-fecha" type="date"/>
+          <select id="filtro-estado">
+            <option value="">Todos</option>
+            <option value="programada">Programada</option>
+            <option value="cancelada">Cancelada</option>
+          </select>
+          <button id="btn-nueva-cita" class="btn-primary">Nueva cita</button>
+        </div>
+      </header>
+
+      <section class="container">
+        <div id="mensaje-citas" class="msg"></div>
+        <table id="tabla-citas" class="table">
+          <thead><tr><th>ID</th><th>Fecha</th><th>Hora</th><th>Paciente</th><th>Doctor</th><th>Especialidad</th><th>Motivo</th><th>Estado</th><th>Acciones</th></tr></thead>
+          <tbody></tbody>
+        </table>
+
+        <!-- Panel: Nueva Cita -->
+        <div id="panel-cita" class="panel hidden max-w">
+          <h3>Nueva cita</h3>
+          <form id="form-cita" class="form">
+            <label>Paciente
+              <select id="c-paciente" required></select>
+              <small class="error" id="err-c-paciente"></small>
+            </label>
+
+            <label>Especialidad
+              <select id="c-especialidad" required><option value="">--</option></select>
+              <small class="error" id="err-c-especialidad"></small>
+            </label>
+
+            <label>Doctor
+              <select id="c-doctor" required><option value="">--</option></select>
+              <small class="error" id="err-c-doctor"></small>
+            </label>
+
+            <label>Fecha
+              <input id="c-fecha" type="date" required />
+              <small class="error" id="err-c-fecha"></small>
+            </label>
+
+            <label>Hora
+              <input id="c-hora" type="time" required />
+              <small class="error" id="err-c-hora"></small>
+            </label>
+
+            <label>Motivo
+              <textarea id="c-motivo" maxlength="200" required></textarea>
+              <small class="error" id="err-c-motivo"></small>
+            </label>
+
+            <div class="form-actions">
+              <button class="btn-primary" type="submit">Agendar</button>
+              <button type="button" id="btn-cancelar-cita" class="btn">Cancelar</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Panel: Detalle Cita -->
+        <div id="panel-detalle-cita" class="panel hidden max-w">
+          <button id="cerrar-detalle" class="btn">Volver</button>
+          <div id="detalle-cita-contenido"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/citas.js"></script>
+</body>
+</html>
