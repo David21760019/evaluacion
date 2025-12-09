@@ -33,7 +33,6 @@ El backend utiliza archivos JSON como base de datos local y expone una API REST 
 
 1. Clona el repositorio o descarga los archivos:
 
-```sh
 -git clone https://github.com/usuario/proyecto-citas.git
 cd proyecto-citas
 
