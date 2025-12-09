@@ -59,5 +59,49 @@ Instala dependencias:v
 <img width="1919" height="866" alt="image" src="https://github.com/user-attachments/assets/d2d66196-4761-422e-82c7-9ef301cd0fda" />
 
 
+Se puede navegar al detalle desde la lista de resultados.
+
+Endpoints Consumidos y Su Uso
+ Pacientes
+Método	Endpoint	Descripción
+GET	/pacientes	Obtener todos los pacientes
+GET	/pacientes/:id	Obtener un paciente específico
+POST	/pacientes	Crear un nuevo paciente
+PUT	/pacientes/:id	Editar paciente
+DELETE	/pacientes/:id	Eliminar paciente
+
+Ejemplo: Crear paciente
+
+API.crearPaciente({
+  nombre: "Juan Pérez",
+  edad: 35,
+  telefono: "5522334455",
+  email: "juan@mail.com"
+});
+
+ Doctores
+Método	Endpoint	Descripción
+GET	/doctores	Obtener todos los doctores
+GET	/doctores/:id	Obtener un doctor
+GET	/doctores/especialidad/:esp	Filtrar doctores por especialidad
+POST	/doctores	Crear doctor
+
+Ejemplo: Filtrar por especialidad
+
+API.doctoresPorEspecialidad("Cardiología");
+
+Citas
+Método	Endpoint	Descripción
+GET	/citas	Todas las citas
+GET	/citas?fecha=YYYY-MM-DD	Citas por fecha
+GET	/citas/:id	Ver una cita
+POST	/citas	Crear nueva cita
+PUT	/citas/:id/cancelar	Cancelar cita
+
+Ejemplo: Citas del día
+
+API.citas(`?fecha=${API.hoy()}`);
+
+
 
 
